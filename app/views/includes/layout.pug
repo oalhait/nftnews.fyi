@@ -1,0 +1,25 @@
+doctype html
+html 
+  head 
+    title nftnews
+    meta(name='viewport' content='width=device-width, initial-scale=1, shrint-to-fit=no')
+    //- link(rel='icon' type='image/png' sizes='32x32' href='/public/images/favicon.ico')
+    //- link(rel='manifest' href='/site.webmanifest')
+    link(rel="stylesheet", href="/css/bootstrap.min.css")
+    link(rel="stylesheet", href="/css/style.css")
+    block stylesheets
+body 
+  //- include navigation
+  //- block tabs
+  #content.container-fluid
+    block content 
+  br
+  //- include footer
+  #spinner.loading.d-none
+    span.sr-only Loading... 
+  script(src="/js/jquery.min.js")
+  script(src="/js/bootstrap.bundle.min.js")
+  script(src="/js/moment.min.js")
+  script(src="/js/chart.min.js")
+  block javascripts
+

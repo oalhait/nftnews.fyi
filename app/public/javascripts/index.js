@@ -1,0 +1,3 @@
+wondow.addEventListener('load', function () {
+
+})
