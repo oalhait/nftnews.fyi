@@ -1,0 +1,37 @@
+@font-face {
+  font-family: TofinoMedium;
+  src: url('../font/tofino-medium.otf');
+}
+@font-face {
+  font-family: TofinoRegular;
+  src: url('../font/tofino-regular.otf');
+}
+#myChart {
+  width: 50vw !important;
+  height: auto !important;
+}
+#content {
+  background-image: url('../images/background.jpeg');
+  font-family: 'TofinoRegular';
+}
+#logo {
+  font-family: 'TofinoMedium';
+  font-size: 75px !important;
+  color: rgb(3, 166, 120);
+}
+#subtitle {
+  color: grey;
+  align-self: center;
+}
+#submit {
+  background-color: rgb(3, 166, 120);
+}
+.container {
+  height: 100vh !important;
+  width: 100vw !important;
+}
+.form-content {
+  background-color: rgb(238, 238, 238);
+  padding: 50px;
+  justify-content: center;
+}

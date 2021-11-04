@@ -57,7 +57,7 @@ app.use('/', require('./routes/index'))
 // app.use('/practice', require('./routes/practice'))
 // app.use('/dashboard', require('./routes/dashboard'))
 
-app.use(function (rqe, res, next) {
+app.use(function (req, res, next) {
   next(createError(404))
 })
 
