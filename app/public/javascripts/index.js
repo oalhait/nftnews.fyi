@@ -1,3 +1,10 @@
+// import { postEmail } from '../javascripts/firebase.js';
+
+$('#submit').on('click', function(req, res, next) {
+  const email = $('#inputEmail').val();
+  console.log("email received from input: ", email);
+  $.post('/submit/' + email);
+})
 window.addEventListener('load', function () {
   const ctx = document.getElementById('myChart');
   const myChart = new Chart(ctx, {

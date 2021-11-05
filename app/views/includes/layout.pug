@@ -2,7 +2,7 @@ doctype html
 html 
   head 
     title nftnews
-    meta(name='viewport' content='width=device-width, initial-scale=1, shrint-to-fit=no')
+    meta(name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no')
     //- link(rel='icon' type='image/png' sizes='32x32' href='/public/images/favicon.ico')
     //- link(rel='manifest' href='/site.webmanifest')
     link(rel="stylesheet", href="/css/bootstrap.min.css")
@@ -19,7 +19,9 @@ body
     span.sr-only Loading... 
   script(type="module", src="/js/jquery.min.js")
   script(type="module", src="/js/bootstrap.bundle.min.js")
-  script(type="module", src="/js/moment.min.js")
+  //- script(type="module", src="/js/moment.min.js")
   script(type="module", src="/js/chart.min.js")
+  script(type="module", src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js")
+  script(type="module", src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js")
   block javascripts
 

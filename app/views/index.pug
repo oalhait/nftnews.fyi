@@ -6,6 +6,8 @@ block stylesheets
 block javascripts 
   script(src="https://cdn.jsdelivr.net/npm/chart.js")
   script(type="module" src="/js/index.js")
+  script(src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js")
+  script(src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js")
 
 block content
   .container.d-flex 
@@ -13,7 +15,7 @@ block content
       h1#logo nftnews.fyi 
       .input-group
         .input-group-prepend.col-9
-          input#inputEmail.form-control(type='email' placeholder='email')
+          input.form-control#inputEmail(type='email' placeholder='email')
         button.btn.btn-primary.col-3#submit(type='submit') submit
 
       //- div 

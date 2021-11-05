@@ -7,7 +7,23 @@ const cookieParser = require('cookie-parser')
 const logger = require('morgan')
 const { queryParser } = require('express-query-parser')
 const { web } = require('webpack')
-// const auth = require('express-auth')
+const firebase = require('firebase/app')
+const { getFirestore, collection, getDocs } = require('firebase/firestore')
+
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
+  apiKey: "AIzaSyBF_Glt2e8FkcrUWCRhJdQdo28--uZ_nRI",
+  authDomain: "nftnews-c1250.firebaseapp.com",
+  projectId: "nftnews-c1250",
+  storageBucket: "nftnews-c1250.appspot.com",
+  messagingSenderId: "122382735615",
+  appId: "1:122382735615:web:96ff41bab6eaa03a7b14ca",
+  measurementId: "G-Y0FC789M35"
+};
+
+const firebaseApp = firebase.initializeApp(firebaseConfig)
+var db = getFirestore(firebaseApp)
 
 // any self defined apis go in lib/
 
@@ -66,6 +82,7 @@ app.use(function (err, req, res, next) {
   res.locals.error = req.app.get('env') === 'development' ? err : {}
   res.status(err.status || 500)
   res.render('error')
+  res.db = db
 })
 
 module.exports = app
