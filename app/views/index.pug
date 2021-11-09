@@ -13,10 +13,15 @@ block content
   .container.d-flex 
     .form-content.my-auto.mx-auto.rounded 
       h1#logo nftnews.fyi 
-      .input-group
+      .lds-dual-ring.hide-by-default#loadingSpinner
+      .input-group#emailForm
         .input-group-prepend.col-9
           input.form-control#inputEmail(type='email' placeholder='email')
         button.btn.btn-primary.col-3#submit(type='submit') submit
-
-      //- div 
-        //- canvas(id="myChart")
+      #successCard.hide-by-default
+        br
+        img(src='../images/success.svg' width='10%')
+        br
+        br
+        h3 Thank you! 
+        p You're now on our email list. We'll grant you exclusive access to the community very soon!

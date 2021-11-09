@@ -1,5 +1,5 @@
 require('dotenv').config()
-const appRoot = require('app-root-path')
+const appRoot = '.'
 const createError = require('http-errors')
 const express = require('express')
 const session = require('express-session')
@@ -7,23 +7,9 @@ const cookieParser = require('cookie-parser')
 const logger = require('morgan')
 const { queryParser } = require('express-query-parser')
 const { web } = require('webpack')
-const firebase = require('firebase/app')
-const { getFirestore, collection, getDocs } = require('firebase/firestore')
+const functions = require('firebase-functions')
 
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
-const firebaseConfig = {
-  apiKey: "AIzaSyBF_Glt2e8FkcrUWCRhJdQdo28--uZ_nRI",
-  authDomain: "nftnews-c1250.firebaseapp.com",
-  projectId: "nftnews-c1250",
-  storageBucket: "nftnews-c1250.appspot.com",
-  messagingSenderId: "122382735615",
-  appId: "1:122382735615:web:96ff41bab6eaa03a7b14ca",
-  measurementId: "G-Y0FC789M35"
-};
-
-const firebaseApp = firebase.initializeApp(firebaseConfig)
-var db = getFirestore(firebaseApp)
+Object.defineProperty(module.exports, "__esModule", { value: true });
 
 // any self defined apis go in lib/
 
@@ -80,9 +66,15 @@ app.use(function (req, res, next) {
 app.use(function (err, req, res, next) {
   res.locals.message = err.message
   res.locals.error = req.app.get('env') === 'development' ? err : {}
+  console.log('error message', err.message)
   res.status(err.status || 500)
+  // res.send('Error: ', err.message)
   res.render('error')
-  res.db = db
+  console.log('finished render error view')
+  // res.db = db
 })
 
-module.exports = app
+// module.exports = app
+// module.exports = functions.https.onRequest(app)
+exports.helloWorld = functions.https.onRequest(app)
+// console.log('module xxxx', module)

@@ -14,6 +14,7 @@ router.post('/submit/:email', async function(req, res, next) {
   const coll = collection(db, 'emails')
   const docRef = doc(db, 'emails', email)
   setDoc(docRef, {email: email}, {merge: true})
+  res.send('done')
 })
 
 router.get('/pn', function(req, res, next) {

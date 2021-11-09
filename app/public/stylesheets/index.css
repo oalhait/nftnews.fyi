@@ -12,6 +12,8 @@
 }
 #content {
   background-image: url('../images/background.jpeg');
+  background-size: cover;
+  position: absolute;
   font-family: 'TofinoRegular';
 }
 #logo {
@@ -33,12 +35,80 @@
 .form-content {
   background-color: rgb(238, 238, 238);
   padding: 50px;
+  text-align: center;
   justify-content: center;
   -webkit-animation: fadein 1s; /* Safari, Chrome and Opera > 12.1 */
   -moz-animation: fadein 1s; /* Firefox < 16 */
   -ms-animation: fadein 1s; /* Internet Explorer */
   -o-animation: fadein 1s; /* Opera < 12.1 */
   animation: fadein 1s;
+}
+.hide-by-default {
+  display: none !important;
+}
+.lds-dual-ring {
+  display: inline-block;
+  width: 80px;
+  height: 80px;
+}
+.lds-dual-ring:after {
+  content: " ";
+  display: block;
+  width: 64px;
+  height: 64px;
+  margin: 8px;
+  border-radius: 50%;
+  border: 6px solid rgb(3, 166, 120);
+  border-color: rgb(3, 166, 120) transparent rgb(3, 166, 120) transparent;
+  animation: lds-dual-ring 1.2s linear infinite;
+}
+@keyframes lds-dual-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Firefox < 16 */
+@-moz-keyframes lds-dual-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Safari, Chrome and Opera > 12.1 */
+@-webkit-keyframes lds-dual-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Internet Explorer */
+@-ms-keyframes lds-dual-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Opera < 12.1 */
+@-o-keyframes lds-dual-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 @keyframes fadein {
