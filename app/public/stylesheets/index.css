@@ -6,19 +6,32 @@
   font-family: TofinoRegular;
   src: url('../font/tofino-regular.otf');
 }
+html {
+  overflow: hidden;
+  height: 100vh;
+}
+body {
+  overflow: auto;
+  height: 100vh;
+}
 #myChart {
   width: 50vw !important;
   height: auto !important;
 }
 #content {
-  background-image: url('../images/background.jpeg');
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
   background-size: cover;
-  position: absolute;
+  background-image:url('../images/background.jpeg');
+  background-repeat:no-repeat;
+  padding: 0 !important;
+  position: fixed;
   font-family: 'TofinoRegular';
 }
 #logo {
   font-family: 'TofinoMedium';
-  font-size: 75px !important;
+  font-size: 75px;
   color: rgb(3, 166, 120);
 }
 #subtitle {
@@ -43,6 +56,22 @@
   -o-animation: fadein 1s; /* Opera < 12.1 */
   animation: fadein 1s;
 }
+.form-content.invalid {
+  -webkit-animation: shake .2s linear;
+  animation: shake .2s linear;
+  -moz-animation: shake .2s linear; /* Firefox < 16 */
+  -ms-animation: shake .2s linear; /* Internet Explorer */
+  -o-animation: shake .2s linear; /* Opera < 12.1 */
+}
+@media screen and (orientation: portrait) and (max-width: 500px) {
+  .form-content {
+    width: 100vw;
+    padding: 5vw;
+  }  
+  #logo {
+    font-size: 50px;
+  }
+}
 .hide-by-default {
   display: none !important;
 }
@@ -61,6 +90,57 @@
   border: 6px solid rgb(3, 166, 120);
   border-color: rgb(3, 166, 120) transparent rgb(3, 166, 120) transparent;
   animation: lds-dual-ring 1.2s linear infinite;
+}
+@keyframes shake {
+  8%, 41% {
+      transform: translateX(-10px);
+  }
+  25%, 58% {
+      transform: translateX(10px);
+  }
+  75% {
+      transform: translateX(-5px);
+  }
+  92% {
+      transform: translateX(5px);
+  }
+  0%, 100% {
+      transform: translateX(0);
+  }
+}
+@-moz-keyframes shake {
+  8%, 41% {
+      transform: translateX(-10px);
+  }
+  25%, 58% {
+      transform: translateX(10px);
+  }
+  75% {
+      transform: translateX(-5px);
+  }
+  92% {
+      transform: translateX(5px);
+  }
+  0%, 100% {
+      transform: translateX(0);
+  }
+}
+@-webkit-keyframes shake {
+  8%, 41% {
+      -webkit-transform: translateX(-10px);
+  }
+  25%, 58% {
+      -webkit-transform: translateX(10px);
+  }
+  75% {
+      -webkit-transform: translateX(-5px);
+  }
+  92% {
+      -webkit-transform: translateX(5px);
+  }
+  0%, 100% {
+      -webkit-transform: translateX(0);
+  }
 }
 @keyframes lds-dual-ring {
   0% {

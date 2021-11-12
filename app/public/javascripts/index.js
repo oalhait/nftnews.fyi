@@ -1,17 +1,29 @@
 // import { postEmail } from '../javascripts/firebase.js';
 
 $('#submit').on('click', function(req, res, next) {
+  $('.form-content').removeClass('invalid');
   $('#loadingSpinner').removeClass('hide-by-default'); 
   $('#emailForm').addClass('hide-by-default'); 
   const email = $('#inputEmail').val();
+  const re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  const emailValid = re.test(email);
+
   console.log("email received from input: ", email);
-  $.post('/submit/' + email).done((res) => {
-    console.log("got back from post request", res);
-    setTimeout(() => { // lol firebase is too fast, slowing down to show loading
-      $('#loadingSpinner').addClass('hide-by-default'); 
-      $('#successCard').removeClass('hide-by-default'); 
-    }, 250);
-  })
+  console.log('email valid: ' + emailValid);
+  setTimeout(() => {
+    if(emailValid) {
+      $.post('/submit/' + email).done((res) => {
+        console.log("got back from post request", res);
+        $('#successCard').removeClass('hide-by-default'); 
+      })
+    } else {
+      console.log('else case');
+      $('.form-content').addClass('invalid');
+      void $('.form-content').clientWidth;
+      $('#emailForm').removeClass('hide-by-default'); 
+    }
+    $('#loadingSpinner').addClass('hide-by-default'); 
+    }, 200)
 })
 window.addEventListener('load', function () {
   const ctx = document.getElementById('myChart');
